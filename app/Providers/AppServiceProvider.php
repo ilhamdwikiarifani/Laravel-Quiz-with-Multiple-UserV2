@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Master;
 use App\Models\UserExam;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;

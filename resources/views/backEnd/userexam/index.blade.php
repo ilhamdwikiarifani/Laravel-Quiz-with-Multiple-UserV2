@@ -18,20 +18,24 @@
         @foreach ($userExam as $key => $datas )
         <div class="col-lg-6">
             <div class="user-card">
-                <div class="badge bg-primary mb-2">{{$datas->master->kategori->name }}</div>
+                <div class="badge bg-danger mb-2">{{$datas->master->kategori->name }}</div>
                 <p>{{ $datas->master->title }}</p>
-                <div class="btn  border-0 bg-dark p-2 fw-normal"> <a href={{ url('user-exam', $datas->master->id) }}
-                        class="text-decoration-none text-white">Join Exams</a>
+
+            </div>
+            <div class="user-card-bottom">
+                <div>{{ $datas->created_at}}</div>
+                <div class="btn-apply ">
+                    <a href={{ url('user-exam', $datas->master->id) }}
+                        >Masuk Ujian</a>
                 </div>
+
             </div>
         </div>
+
         @endforeach
         @else
         <div>Tidak Ada ujian Yang dipilih</div>
         @endif
-
-
-
     </div>
 </div>
 @endsection
