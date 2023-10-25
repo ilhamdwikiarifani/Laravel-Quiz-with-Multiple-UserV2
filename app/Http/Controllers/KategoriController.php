@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\Master;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -71,10 +72,17 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, Kategori $kategori)
     {
-        Kategori::where('id', $request->idx)->delete();
 
-        return redirect()->back()->with('success',  'berhasil menghapus data');
+        $cekMaster = Master::where('kategori_id', $kategori->id)->count();
+
+
+        if ($cekMaster == 0) {
+            Kategori::where('id', $request->idx)->delete();
+            return redirect()->back()->with('success',  'berhasil menghapus data');
+        } else {
+            return redirect()->back()->with('error',  'Terdapat data yang terkait');
+        }
     }
 }

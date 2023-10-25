@@ -9,9 +9,15 @@
     <title>Dashboard - codeneko™ </title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{{ asset('backEnd/image/logo/icon.png') }}" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Spline+Sans:wght@400;500;600;700&display=swap"
+
+    {{-- font --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+
+
+    {{-- logo --}}
     <script src="https://kit.fontawesome.com/2952392494.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href={{ asset('backEnd/css/styles.css') }} rel="stylesheet" />
@@ -23,15 +29,15 @@
 </head>
 
 <body class="bg-gray">
-    <div class="container-fluid">
+    <div class="container-fluid bg-white border">
         @include('backEnd.components.navbar')
     </div>
-    <div class="d-flex container-fluid" id="wrapper">
+    <div class="d-flex container mt-lg-3" id="wrapper">
         <!-- Sidebar-->
         @include('backEnd.components.sidebar')
 
         <!-- Page content wrapper-->
-        <div id="page-content-wrapper" class="pe-md-0" style="padding-right: 50px">
+        <div id="page-content-wrapper" class="pe-md-3" style="padding-right: 50px">
             <!-- Page content-->
             @yield('content')
         </div>

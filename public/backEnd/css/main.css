@@ -37,7 +37,7 @@
 
 /* Background Color */
 .bg-gray {
-    background: #fafafa;
+    background: #fbfbfb;
 }
 
 /* Sidebar */
@@ -45,8 +45,9 @@
     position: relative;
     text-decoration: none;
     color: rgb(44, 44, 44);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
+    border-radius: 5px;
 }
 
 .sidebar-text:hover {
@@ -56,8 +57,9 @@
 
 .activeSidebar {
     background: white;
-    font-weight: 400;
-    border-right: 3px solid #4b93ffff;
+    font-weight: 500;
+    /* border-right: 3px solid #4b93ffff; */
+    border: 1px solid #dee2e6;
     color: #4b93ffff;
 }
 
@@ -68,7 +70,7 @@
     font-size: 11px;
 }
 
-/* Waran */
+/* Warna */
 
 .bg-blue {
     background: #4b93ffff;
