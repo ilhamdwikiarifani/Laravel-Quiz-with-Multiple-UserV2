@@ -22,5 +22,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        view()->composer('*', function ($view) {
+            if (Auth::check()) {
+                $view->with('countExam', Master::where('status', 1)->count());
+                $view->with('countApply', UserExam::where('user_id', Auth::user()->id)->where('master_join', 1)->count());
+            } else {
+                $view->with('countApply', null);
+            }
+        });
     }
 }

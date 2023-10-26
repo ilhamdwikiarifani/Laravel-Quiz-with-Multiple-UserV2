@@ -17,7 +17,7 @@ class UserExamController extends Controller
     // Appply Exam 
     public function apply_index(Request $request)
     {
-        $master = Master::with('kategori')->get();
+        $master = Master::with('kategori')->latest()->get();
         return view("backEnd.layout.home", compact('master'));
     }
 

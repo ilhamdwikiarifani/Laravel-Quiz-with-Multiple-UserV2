@@ -37,7 +37,7 @@
 
 /* Background Color */
 .bg-gray {
-    background: #fbfbfb;
+    background: #fafafa;
 }
 
 /* Sidebar */
@@ -123,10 +123,11 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #fffbfc;
+    margin-bottom: 25px;
 }
 
 @media (max-width: 768px) {
-    .user-card {
+    .user-card-bottom {
         margin-bottom: 18px;
     }
 }
