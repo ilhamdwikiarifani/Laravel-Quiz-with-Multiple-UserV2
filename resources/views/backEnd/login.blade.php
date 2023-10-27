@@ -19,6 +19,8 @@
     <script src="https://kit.fontawesome.com/2952392494.js" crossorigin="anonymous"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
 
+    <script src={{ asset('backEnd/js/jquery.js') }}></script>
+
 </head>
 
 <body>
@@ -47,6 +49,13 @@
             </form>
         </div>
     </div>
+
+
+    <script>
+        $(document).ready(function() {
+                    $(".toast").toast('show');
+                });
+    </script>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

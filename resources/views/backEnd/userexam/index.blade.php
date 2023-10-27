@@ -23,7 +23,7 @@
 
             </div>
             <div class="user-card-bottom">
-                <div>{{ $datas->created_at}}</div>
+                <div>{{ $datas->created_at->diffForHumans()}}</div>
                 <div class="btn-apply ">
                     <a href={{ url('user-exam', $datas->master->id) }}
                         >Masuk Ujian</a>

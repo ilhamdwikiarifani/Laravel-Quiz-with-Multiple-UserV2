@@ -138,3 +138,11 @@
     border-radius: 10px;
     margin-bottom: 10px;
 }
+
+.profil-wraper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: rgb(199, 199, 199);
+}

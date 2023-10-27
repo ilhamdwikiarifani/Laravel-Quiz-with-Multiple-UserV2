@@ -32,7 +32,7 @@
     <div class="container-fluid bg-white border">
         @include('backEnd.components.navbar')
     </div>
-    <div class="d-flex container mt-lg-3" id="wrapper">
+    <div class="d-flex container-fluid mt-lg-3" id="wrapper">
         <!-- Sidebar-->
         @include('backEnd.components.sidebar')
 

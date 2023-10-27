@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserExam extends Model
 {
@@ -21,5 +22,10 @@ class UserExam extends Model
     public function master()
     {
         return $this->belongsTo(Master::class, 'master_id', 'id');
+    }
+
+    public function getCreatedAtAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at']);
     }
 }

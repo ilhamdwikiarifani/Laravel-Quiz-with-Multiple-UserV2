@@ -11,52 +11,86 @@
     </div>
 </div>
 
-<div class="container bg-white border rounded-bottom p-3 py-3" style="margin-top: -1px; ">
-    <div class="px-3">
-        <h4 class="mt-3"><span style="font-size: 17px">Hello,</span> <span class="text-primary">{{ Auth::user()->name
-                }}🚀</span></h4>
-        <p class="mt-3">Dashboard <code class="mx-1">{{ Auth::user()->role->name }}</code> The starting state of the
-            menu
-            will appear
-            collapsed on
-            smaller screens, and will appear
-            non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-    </div>
+<div class="container bg-white border rounded-bottom p-3 py-4" style="margin-top: -1px; ">
 
 
-
-    <div class="px-3 row pb-4">
-        @foreach ($master as $key => $datas )
-        <div class="col-lg-6">
-            <div class="user-card">
-                <div class="badge bg-danger mb-2">{{ $datas->kategori->name }}</div>
-                <p>{{ $datas->title}}</p>
-            </div>
-            <div class="user-card-bottom">
-                @php
-                $userCurrent = Auth::user()->id;
-                $idCurrent = $datas->id;
-
-                // user cek
-                $checkApply = App\Models\UserExam::where('user_id', $userCurrent)->where('master_id',
-                $idCurrent)->first();
-                @endphp
-
-                <div>{{ $datas->created_at}}</div>
-
-                @if ($checkApply)
-                <p class="m-0 text-danger">Anda Sudah mengambil Ujian ini</p>
-                @else
-                <div class="btn-apply ">
-                    <a href={{ url('dashboard', $datas->id) }}
-                        >Apply Exams</a>
+    <div class="row px-3">
+        <div class="col-lg-4 mx-0">
+            <div class="user-card d-flex justify-content-center align-items-center">
+                <div> {{-- Point --}}
+                    <div class="position-relative">
+                        <div class="profil-wraper">
+                            <img src="" alt="">
+                        </div>
+                        <div class="position-absolute px-2 py-1 bg-warning text-dark rounded"
+                            style="right: 5px;  bottom:15px; font-size:9px;">
+                            {{ Auth::user()->role->name }}
+                        </div>
+                    </div>
+                    <div class="mt-3 text-center fw-bold">{{ Auth::user()->name }}</div>
+                    <div class="text-center" style="font-size:11px;">{{ Auth::user()->email }}</div>
                 </div>
-                @endif
+            </div>
+            <div class="user-card rounded-0 py-2" style="margin-top: -1px">
+                <div>Nama</div>
+            </div>
+            <div class="user-card rounded-0 py-2" style="margin-top: -1px">
+                <div>kelas</div>
             </div>
         </div>
-        @endforeach
 
+        <div class="col-lg-8">
+            <div class="px-3 row pb-4 ">
+
+                <div class="col-lg-12 px-1">
+                    <div class="  mt-4 mt-lg-0 user-card rounded mb-4 text-13px py-3 text-primary"
+                        style="background: rgb(237, 243, 255)">
+                        <div>Selamat Datang, <span class="fw-bold">{{
+                                Auth::user()->name }}</span> !</div>
+                        <div style="font-size:10px;">Di <span class="fw-bold">codenekoQuiz</span> -
+                            nekoserve™</div>
+                    </div>
+                </div>
+
+                @foreach ($master as $key => $datas )
+
+                <div class="col-lg-6 px-1">
+                    <div class="user-card">
+                        <div class="badge bg-danger mb-2">{{ $datas->kategori->name }}</div>
+                        <p>{{ $datas->title}}</p>
+                    </div>
+                    <div class="user-card-bottom">
+                        @php
+                        $userCurrent = Auth::user()->id;
+                        $idCurrent = $datas->id;
+
+                        // user cek
+                        $checkApply = App\Models\UserExam::where('user_id', $userCurrent)->where('master_id',
+                        $idCurrent)->first();
+                        @endphp
+
+                        <div style="font-size: 10px">{{ $datas->created_at->diffForHumans()}}</div>
+
+                        @if ($checkApply)
+                        <p class="m-0 text-danger" style="font-size: 10px">Anda Sudah mengambil Ujian ini</p>
+                        @else
+                        <div class="btn-apply ">
+                            <a href={{ url('dashboard', $datas->id) }}
+                                >Apply Exams</a>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+
+                @endforeach
+
+            </div>
+        </div>
     </div>
+
+
+
+
 
 </div>
 @endsection

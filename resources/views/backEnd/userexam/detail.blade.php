@@ -20,57 +20,73 @@
         {{ dd($resultExam); }} --}}
 
 
+        <div class="mb-2 ms-2">
+            <h6>Profil</h6>
+        </div>
+
         <div class="col-lg-12">
             <div class="result-card">
-                <div class="">Nama Siswa : {{ $resultExam->user->name }}</div>
+                <div class=""><span class="fw-bolder">Nama Siswa :</span> {{ $resultExam->user->name }}</div>
             </div>
         </div>
 
         <div class="col-lg-12">
             <div class="result-card">
-                <div class="">Kelas : {{ $resultExam->kelas }}</div>
+                <div class=""><span class="fw-bolder">Kelas :</span> {{ $resultExam->kelas }}</div>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="result-card">
-                <div class="">Mata Pelajaran : {{ $resultExam->matpel }}</div>
+                <div class=""><span class="fw-bolder">Mata Pelajaran :</span>{{ $resultExam->matpel }}</div>
             </div>
         </div>
 
         <div class="col-lg-4">
             <div class="result-card">
-                <div class="">Benar : {{ $resultExam->benar }}</div>
+                <div class=""><span class="fw-bolder">Benar :</span> {{ $resultExam->benar }}</div>
             </div>
         </div>
 
         <div class="col-lg-4">
             <div class="result-card">
-                <div class="">Salah : {{ $resultExam->salah }}</div>
+                <div class=""><span class="fw-bolder">Salah :</span> {{ $resultExam->salah }}</div>
             </div>
         </div>
 
         <div class="col-lg-4">
             <div class="result-card">
-                <div class="">Overall : {{ $resultExam->overall }}</div>
+                <div class=""><span class="fw-bolder">Overall :</span> {{ $resultExam->overall }}</div>
             </div>
+        </div>
+
+        <div class="mt-4 mb-2 me-2">
+            <h6>Ulasan</h6>
         </div>
 
         <div class="col-lg-12">
             @foreach (json_decode($resultExam->detail) as $key => $item)
-            <div class="result-card">
+            <div class="user-card">
 
                 <p>{{ $key+1 }}. {{ $item->soal }}</p>
 
                 @if($item->status === $item->correct)
-                <p class="text-success">Status: {{ $item->status }}</p>
-                <p class="text-success">Correct: {{ $item->correct }}</p>
+                <li class="text-success"><span class="fw-bold">Jawaban Kamu :</span> {{ $item->status }}</li>
+                <li class="text-success"><span class="fw-bolder">Correct :</span> {{ $item->correct }}</li>
                 @else
-                <p class="text-danger">Status: {{ $item->status }}</p>
-                <p class="text-success">Correct: {{ $item->correct }}</p>
+                <li class="text-danger"><span class="fw-bold">Jawaban Kamu :</span> {{ $item->status }}</li>
+                <li class=" text-success"><span class="fw-bolder">Correct :</span> {{ $item->correct }}</li>
                 @endif
-
-                <p>Evaluasi: {{ $item->evaluasi }}</p>
             </div>
+
+            @if($item->status === $item->correct)
+            <div class="user-card-bottom bg-success text-white">
+                <div><span class="fw-bolder">Evaluasi :</span> {{ $item->evaluasi }}</div>
+            </div>
+            @else
+            <div class="user-card-bottom bg-danger text-white">
+                <div><span class="fw-bolder">Evaluasi :</span> {{ $item->evaluasi }}</div>
+            </div>
+            @endif
             @endforeach
         </div>
 
