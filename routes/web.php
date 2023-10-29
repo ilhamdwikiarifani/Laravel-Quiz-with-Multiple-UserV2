@@ -37,27 +37,32 @@ Route::post('logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::middleware([auth::class])->group(
     function () {
 
-        Route::resource('kategori', KategoriController::class);
+        Route::middleware([admin::class])->group(
+            function () {
 
-        // Master
-        Route::get('master', [MasterController::class, 'index']);
-        Route::get('master/create', [MasterController::class, 'create']);
-        Route::post('master', [MasterController::class, 'store'])
-            ->name('master.store');
-        Route::delete('master', [MasterController::class, 'destroy'])
-            ->name('master.destroy');
+                Route::resource('kategori', KategoriController::class);
 
-        // Master -  Add Soal
-        Route::get('master/addSoal/{id}', [AddSoalController::class, 'index']);
-        Route::get('master/addSoal/create/{id}', [AddSoalController::class, 'create']);
-        Route::post('master/addSoal/{id}', [AddSoalController::class, 'store'])
-            ->name('addSoal.store');
-        Route::delete('master/addSoal', [AddSoalController::class, 'destroy'])
-            ->name('addSoal.destroy');
+                // Master
+                Route::get('master', [MasterController::class, 'index']);
+                Route::get('master/create', [MasterController::class, 'create']);
+                Route::post('master', [MasterController::class, 'store'])
+                    ->name('master.store');
+                Route::delete('master', [MasterController::class, 'destroy'])
+                    ->name('master.destroy');
+
+                // Master -  Add Soal
+                Route::get('master/addSoal/{id}', [AddSoalController::class, 'index']);
+                Route::get('master/addSoal/create/{id}', [AddSoalController::class, 'create']);
+                Route::post('master/addSoal/{id}', [AddSoalController::class, 'store'])
+                    ->name('addSoal.store');
+                Route::delete('master/addSoal', [AddSoalController::class, 'destroy'])
+                    ->name('addSoal.destroy');
 
 
-        // Manage User
-        Route::resource('manage-user', ManageUserController::class);
+                // Manage User
+                Route::resource('manage-user', ManageUserController::class);
+            }
+        );
 
 
         Route::get('dashboard', function () {

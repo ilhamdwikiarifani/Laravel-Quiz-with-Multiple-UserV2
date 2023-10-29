@@ -6,7 +6,7 @@
 {{-- Content --}}
 <div class="container mt-3 bg-white border p-3 rounded-top">
     <div class="px-2 d-flex justify-content-start align-items-center">
-        <button class="btn btn-white text-13px fw-bold" id="sidebarToggle"><i class="fa-solid fa-bars me-2"></i>
+        <button class="btn btn-white  fw-bold" id="sidebarToggle"><i class="fa-solid fa-bars me-2"></i>
             Ujian</button>
     </div>
 </div>

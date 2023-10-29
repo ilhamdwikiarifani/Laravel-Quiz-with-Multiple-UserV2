@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - codeneko™ </title>
+    <title>codeneko Dashboard - nekoserve™ </title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{{ asset('backEnd/image/logo/icon.png') }}" />
 
@@ -32,16 +32,23 @@
     <div class="container-fluid bg-white border">
         @include('backEnd.components.navbar')
     </div>
-    <div class="d-flex container-fluid mt-lg-3" id="wrapper">
+
+    {{-- ADV --}}
+    @include('backEnd.components.adv')
+
+    <div class="d-flex container mt-lg-3" id="wrapper">
         <!-- Sidebar-->
         @include('backEnd.components.sidebar')
 
         <!-- Page content wrapper-->
-        <div id="page-content-wrapper" class="pe-md-3" style="padding-right: 50px">
+        <div id="page-content-wrapper" class="pe-md-3 mb-5" style="padding-right: 50px">
             <!-- Page content-->
             @yield('content')
         </div>
     </div>
+
+    @include('backEnd.components.footer')
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

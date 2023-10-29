@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg py-3">
-    <div class="container-fluid px-0 ">
+    <div class="container px-0 ">
         <img src={{ asset('backEnd/image/logo/codeneko-black.png') }} alt="img-logo" width="150px" class="ps-3">
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

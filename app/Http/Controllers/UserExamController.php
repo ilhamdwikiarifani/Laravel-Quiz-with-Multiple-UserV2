@@ -7,6 +7,7 @@ use App\Models\Master;
 use App\Models\AddSoal;
 use App\Models\UserExam;
 use App\Models\ResultExam;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -18,13 +19,18 @@ class UserExamController extends Controller
     public function apply_index(Request $request)
     {
         $master = Master::with('kategori')->latest()->get();
-        return view("backEnd.layout.home", compact('master'));
+
+        // User siswa Count
+
+        $userCount = User::with('role')->where('role_id', 1)->count();
+
+        return view("backEnd.layout.home", compact('master', 'userCount'));
     }
 
 
     // Buat apply data ngawe nampung data apply
 
-    public function apply_exam(Request $request, $id,)
+    public function apply_exam(Request $request, $id, Master $master)
     {
 
         $userCurrent = Auth::user()->id;
@@ -126,7 +132,7 @@ class UserExamController extends Controller
 
     public function result_index()
     {
-        $resultExam = ResultExam::with('user')->where('user_id', Auth::user()->id)->get();
+        $resultExam = ResultExam::with('user')->latest()->get();
         return view("backEnd.userexam.result", compact('resultExam'));
     }
 

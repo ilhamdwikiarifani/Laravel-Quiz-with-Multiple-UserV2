@@ -9,7 +9,7 @@
 {{-- Content --}}
 <div class="container mt-3 bg-white border p-3 rounded-top">
     <div class="px-2 d-flex justify-content-between align-items-center">
-        <button class="btn btn-white text-13px fw-bold" id="sidebarToggle"><i class="fa-solid fa-bars me-2"></i>
+        <button class="btn btn-white  fw-bold" id="sidebarToggle"><i class="fa-solid fa-bars me-2"></i>
             Soal Ujian</button>
         <a class="btn btn-primary me-4 me-lg-0 text-13px" href={{ url('exam/create') }}><i
                 class="fa-solid fa-plus me-lg-2"></i> <span class="d-none d-lg-inline-block">Create
